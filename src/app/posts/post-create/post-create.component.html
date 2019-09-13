@@ -1,9 +1,14 @@
 <mat-card>
   <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredTitle"/>
+    <input matInput type="text" [(ngModel)]="enteredTitle"
+        placeholder="Enter Title"
+        required
+    />
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
+    <textarea matInput rows="6" [(ngModel)]="enteredContent"
+    placeholder="Enter Content"
+    ></textarea>
   </mat-form-field>
   <button
     mat-raised-button
