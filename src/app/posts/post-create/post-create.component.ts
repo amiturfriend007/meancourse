@@ -17,6 +17,7 @@ export class PostCreateComponent {
   onAddPost()
   {
     const post: Post = {
+      id : null,
       title: this.enteredTitle,
       content: this.enteredContent
     }
