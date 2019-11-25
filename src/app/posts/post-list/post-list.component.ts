@@ -15,18 +15,24 @@ export class PostListComponent implements OnInit, OnDestroy {
   //   {title:"Third post", content:"This is third post\'s content"}
   // ]
   posts: Post[] = [];
+  isLoading = false;
   private postsSub: Subscription;
 
-  constructor(public postsService:PostsService) {
+  constructor(public postsService: PostsService) {
   }
 
   ngOnDestroy () {
     this.postsSub.unsubscribe();
   }
   ngOnInit() {
+    this.isLoading = true;
     this.postsService.getPosts();
     this.postsSub = this.postsService.getPostUpdateListener().subscribe((posts: Post[]) => {
-        this.posts = posts;
+      this.isLoading = false;
+      this.posts = posts;
     });
+  }
+  onDelete(postId: string) {
+    this.postsService.deletePost(postId);
   }
 }
